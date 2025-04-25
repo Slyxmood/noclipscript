@@ -7,9 +7,9 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 local noclipEnabled = false
 
--- Roblox Plus sesi
+-- Steam bildirimi sesi
 local sound = Instance.new("Sound")
-sound.SoundId = "rbxassetid://1760921747" -- Roblox Plus bildirim sesi
+sound.SoundId = "rbxassetid://195868961" -- Steam bildirim sesi
 sound.Volume = 2
 sound.Name = "NotifySound"
 sound.Parent = workspace
