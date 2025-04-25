@@ -7,13 +7,27 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 local noclipEnabled = false
 
+-- Ses objesi oluştur
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://6073491164" -- Seçtiğin ses ID'sini buraya gir
+sound.Volume = 2
+sound.Parent = workspace
+
+local function playNotifySound()
+    sound:Play()
+end
+
 local function setNoclip(state)
     noclipEnabled = state
+
     StarterGui:SetCore("SendNotification", {
         Title = "Noclip",
         Text = noclipEnabled and "Noclip Aktif!" or "Noclip Kapatıldı!",
         Duration = 3
     })
+
+    playNotifySound()
+
     if noclipEnabled then
         RunService.Stepped:Connect(function()
             if noclipEnabled then
@@ -45,5 +59,3 @@ player.CharacterAdded:Connect(function(char)
     character = char
     humanoid = character:WaitForChild("Humanoid")
 end)
-
--- slyxmood tarafından yapılmıştır
